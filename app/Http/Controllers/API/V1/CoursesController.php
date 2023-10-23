@@ -10,6 +10,8 @@ use App\Http\Requests\UpdateCoursesRequest;
 use App\Http\Resources\V1\CoursesResource;
 use App\Http\Resources\V1\CoursesCollection;
 use App\Filters\V1\CourseFilter;
+use Illuminate\Support\Arr;
+use App\Http\Requests\V1\BulkStoreCourseRequest;
 
 class CoursesController extends Controller
 {
@@ -43,6 +45,14 @@ class CoursesController extends Controller
     public function store(StoreCoursesRequest $request)
     {
         //
+    }
+
+    public function bulkStore(BulkStoreCourseRequest $request){
+        $bulk = collect($request->all())->map(function($arr, $key){
+            return Arr::except($arr,['studentId','startDate', 'endDate']);
+        });
+
+        Courses::insert($bulk->toArray());
     }
 
     /**

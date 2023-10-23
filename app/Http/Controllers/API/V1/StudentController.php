@@ -5,11 +5,13 @@ namespace App\Http\Controllers\API\V1;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreStudentRequest;
-use App\Http\Requests\UpdateStudentRequest;
+// use App\Http\Requests\StoreStudentRequest;
+// use App\Http\Requests\UpdateStudentRequest;
 use App\Http\Resources\V1\StudentResource;
 use App\Http\Resources\V1\StudentCollection;
 use App\Filters\V1\StudentFilter;
+use App\Http\Requests\V1\StoreStudentRequest;
+use App\Http\Requests\V1\UpdateStudentRequest;
 
 class StudentController extends Controller
 {
@@ -45,7 +47,7 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        //
+        return new StudentResource(Student::create($request->all()));
     }
 
     /**
@@ -75,7 +77,7 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        //
+        $student->update($request->all());
     }
 
     /**
