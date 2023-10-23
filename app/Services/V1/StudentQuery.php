@@ -18,7 +18,6 @@ class StudentQuery {
         'postalCode' => 'postal_code'
     ];
 
-
     protected $operatorMap = [
         'eq' => '=',
         'lt' => '<',
@@ -26,7 +25,6 @@ class StudentQuery {
         'gt' => '>',
         'gte'=> '>='
     ];
-
 
     public function transform(Request $request){
         $eloQuery = [];
@@ -45,9 +43,6 @@ class StudentQuery {
                 }
             }
         }
-
-
         return $eloQuery;
     }
-
 }
