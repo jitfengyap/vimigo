@@ -19,15 +19,17 @@ class StudentController extends Controller
     public function index(Request $request)
     {
         $filter = new StudentFilter();
-        $queryItems = $filter->transform($request);
+        $filterItems = $filter->transform($request);
         
-        if(count($queryItems)==0){
-            return new StudentCollection(Student::paginate());
-        }else{
-            $students = Student::where($queryItems)->paginate();
+        $includeCourses = $request->query('includeCourses');
 
-            return new StudentCollection($students->appends($request->query()));
+        $students = Student::where($filterItems);
+        
+        if($includeCourses){
+            $students = $students->with('courses');
         }
+        
+        return new StudentCollection($students->paginate()->appends($request->query()));
     }
 
     /**
@@ -51,6 +53,12 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
+        $includeCourses = request()->query('includeCourses');
+
+        if($includeCourses){
+            return new StudentResource($student->loadMissing('courses'));
+        }
+
         return new StudentResource($student);
     }
 

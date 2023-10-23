@@ -20,7 +20,8 @@ class StudentResource extends JsonResource
             'address' => $this->address,
             'city' => $this->city,
             'state'=> $this->state,
-            'postalCode' => $this->postal_code
+            'postalCode' => $this->postal_code,
+            'courses'=> CoursesResource::collection($this->whenLoaded('courses'))
         ];
     }
 }
