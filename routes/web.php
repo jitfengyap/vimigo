@@ -23,16 +23,16 @@ Route::get('/setup', function(){
         'password' => 'password'
     ];
 
-    if(!auth::attempt($credentials)){
+    if(!Auth::attempt($credentials)){
         $user = new \App\Models\User();
 
         $user->name = 'Admin';
-        $user->email = $crudentials['email'];
-        $user->password = Hash::make($crudentials['password']);
+        $user->email = $credentials['email'];
+        $user->password = Hash::make($credentials['password']);
 
         $user->save();
 
-        if(Auth::attempt($crudentials)){
+        if(Auth::attempt($credentials)){
             $user = Auth::user();
 
             $adminToken = $user->createToken('admin-token',['create','update','delete']);
