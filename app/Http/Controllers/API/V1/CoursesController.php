@@ -9,17 +9,24 @@ use App\Http\Requests\StoreCoursesRequest;
 use App\Http\Requests\UpdateCoursesRequest;
 use App\Http\Resources\V1\CoursesResource;
 use App\Http\Resources\V1\CoursesCollection;
-
+use App\Filters\V1\CourseFilter;
 
 class CoursesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-
-        return new CoursesCollection(Courses::paginate());
+        $filter = new CourseFilter();
+        $queryItems = $filter->transform($request);
+        
+        if(count($queryItems)==0){
+            return new CoursesCollection(Courses::paginate());
+        }else{
+            $courses = Courses::where($queryItems)->paginate();
+            return new CoursesCollection($courses->appends($request->query()));
+        }
     }
 
     /**
