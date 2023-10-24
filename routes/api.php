@@ -24,4 +24,5 @@ Route::group(['prefix' => 'v1', 'namespace'=> 'App\Http\Controllers\API\V1','mid
     Route::apiResource('courses', CoursesController::class);
 
     Route::post('courses/bulk', ['uses'=>'CoursesController@bulkStore']);
+    Route::post('students/bulk', ['uses'=>'StudentController@bulkStore']);
 });

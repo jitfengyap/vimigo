@@ -12,6 +12,8 @@ use App\Http\Resources\V1\StudentCollection;
 use App\Filters\V1\StudentFilter;
 use App\Http\Requests\V1\StoreStudentRequest;
 use App\Http\Requests\V1\UpdateStudentRequest;
+use App\Http\Requests\V1\BulkStoreStudentRequest;
+use Illuminate\Support\Arr;
 
 class StudentController extends Controller
 {
@@ -62,6 +64,14 @@ class StudentController extends Controller
         }
 
         return new StudentResource($student);
+    }
+
+    public function bulkStore(BulkStoreStudentRequest $request){
+        $bulk = collect($request->all())->map(function($arr, $key){
+            return Arr::except($arr,['postalCode']);
+        });
+
+        Student::insert($bulk->toArray());
     }
 
     /**
