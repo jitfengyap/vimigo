@@ -70,6 +70,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 http://127.0.0.1:8000/api/v1/students
 
 # Video Explanation
+https://youtu.be/23UCRSc-tTU
 
-
-#
+# POSTMAN JSON
+https://github.com/jitfengyap/vimigo/blob/master/Vimigo%20Api.postman_collection.json
