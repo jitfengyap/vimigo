@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "6c88cf36-6add-49a0-8e38-f9864f97d2ff",
+		"name": "Vimigo Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27109592"
+	},
+	"item": [
+		{
+			"name": "Post Request",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "2|vunQMOAKlOVgd6X5HGBepFryyjyDiZMivqP4WpYRfedf6fd4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Foo Zhi'en\",\r\n    \"address\": \"Jalan Kirara 5\",\r\n    \"email\":\"zhienfoo@gmail.com\",\r\n    \"city\": \"Puchong\",\r\n    \"state\": \"Texas\",\r\n    \"postalCode\": \"12312\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/students",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"students"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Request",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|O35JXBjoB3w2QoD1RdhnmWSaReukPFuV0LfvSKgz06418112",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/students/233",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Request",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|O35JXBjoB3w2QoD1RdhnmWSaReukPFuV0LfvSKgz06418112",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Zhien\",\r\n    \"address\": \"Jalan Kirara 5\",\r\n    \"email\":\"zhien@gmail.com\",\r\n    \"city\": \"Puchong\",\r\n    \"state\": \"Texas\",\r\n    \"postalCode\": \"12312\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/students/233",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|O35JXBjoB3w2QoD1RdhnmWSaReukPFuV0LfvSKgz06418112",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Foo Zhi'en\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/students/233",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"233"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Store Students",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|O35JXBjoB3w2QoD1RdhnmWSaReukPFuV0LfvSKgz06418112",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"name\": \"Foo Zhi'en\",\r\n    \"email\":\"zhienfoo@gmail.com\",\r\n    \"address\": \"Jalan Kirara 5\",\r\n    \"city\": \"Puchong\",\r\n    \"state\": \"Texas\",\r\n    \"postalCode\": \"12312\"\r\n},{\r\n    \"name\": \"Foo Zhi'en2\",\r\n    \"email\":\"zhienfoo123@gmail.com\",\r\n    \"address\": \"Jalan Kirara 52\",\r\n    \"city\": \"Puchong 1\",\r\n    \"state\": \"Texas 1\",\r\n    \"postalCode\": \"123122\"\r\n}]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/students/bulk",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"students",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Store Courses",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1|O35JXBjoB3w2QoD1RdhnmWSaReukPFuV0LfvSKgz06418112",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[{\r\n    \"studentId\":1,\r\n    \"name\":\"FIT3191\",\r\n    \"status\":\"C\",\r\n    \"startDate\":\"2011-09-15 16:22:45\",\r\n    \"endDate\": \"2019-09-15 16:22:45\"\r\n},\r\n{\r\n    \"studentId\":1,\r\n    \"name\":\"FIT31231\",\r\n    \"status\":\"O\",\r\n    \"startDate\":\"2012-09-15 16:22:45\",\r\n    \"endDate\": null\r\n}]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/v1/courses/bulk",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"courses",
+						"bulk"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
